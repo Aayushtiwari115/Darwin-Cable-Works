@@ -17,9 +17,9 @@ This is a responsive, static website with three pages—Home, Contact and Privac
 - Add the confirmed domain's canonical/social metadata, then generate the domain-specific sitemap and `robots.txt` after the public HTTPS domain is confirmed:
 
   ```sh
-  SITE_URL=https://www.your-confirmed-domain.example/ node scripts/generate-sitemap.mjs
+  SITE_URL=https://YOUR-USERNAME.github.io/darwin-cable-works/ node scripts/generate-sitemap.mjs
   ```
 
-The script rejects non-HTTPS and non-origin URLs so the generated sitemap and `robots.txt` use the confirmed canonical domain. The current `robots.txt` allows crawling but does not yet include a sitemap URL.
+Replace `YOUR-USERNAME` with the confirmed GitHub account name. For a custom domain, use its HTTPS root instead (for example `https://www.example.com/`). The script requires HTTPS and a trailing slash, and supports GitHub Pages project-site paths so sitemap entries and the robots.txt sitemap reference include the repository path. The current `robots.txt` allows crawling but does not yet include a sitemap URL.
 
 After launch, verify the site in Google Search Console and Bing Webmaster Tools, submit the generated sitemap, and keep the website name, phone number and service area consistent with the business's public listings. Do not add a street address, opening hours, service guarantees or registration claims to structured data unless verified.

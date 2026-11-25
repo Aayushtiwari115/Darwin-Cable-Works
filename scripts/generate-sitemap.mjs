@@ -8,8 +8,15 @@ if (!siteUrl) {
 }
 
 const parsedUrl = new URL(siteUrl);
-if (parsedUrl.protocol !== "https:" || parsedUrl.pathname !== "/" || parsedUrl.search || parsedUrl.hash) {
-  throw new Error("SITE_URL must be the site's HTTPS origin, for example https://www.example.com/");
+if (
+  parsedUrl.protocol !== "https:" ||
+  parsedUrl.username ||
+  parsedUrl.password ||
+  !parsedUrl.pathname.endsWith("/") ||
+  parsedUrl.search ||
+  parsedUrl.hash
+) {
+  throw new Error("SITE_URL must be the site's HTTPS base URL ending in /, for example https://www.example.com/ or https://username.github.io/darwin-cable-works/");
 }
 
 const pages = [
