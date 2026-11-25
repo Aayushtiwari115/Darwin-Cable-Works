@@ -4,8 +4,9 @@ This is a responsive, static website with three pages—Home, Contact and Privac
 
 ## Before launch
 
-- **Confirm and use the public domain.** Canonical URLs are intentionally not generated until the final HTTPS domain is known; this avoids indexing preview or local-host URLs. After confirmation, add canonical and `og:url` metadata on the indexable pages, add an absolute social preview image URL, then run the sitemap script below.
-- **Configure the hosting platform.** Force HTTPS, redirect HTTP and duplicate hostnames to one preferred HTTPS hostname, and configure security headers at the host/CDN (at minimum HSTS after HTTPS is verified, `X-Content-Type-Options`, `Referrer-Policy`, a restrictive `Permissions-Policy`, and a tested Content Security Policy). Confirm `404.html` is served with an HTTP 404 status.
+- **GitHub Pages URL prepared:** `https://aayushtiwari115.github.io/Darwin-Cable-Works/`. Canonical and social preview URLs are configured for this project URL. If the account, repository name, or domain changes, update them before launch.
+- **Enable GitHub Pages.** In the repository settings, go to **Pages**, select **Deploy from a branch**, choose `main` and `/(root)`, and save. Wait for the deployment to complete before checking the live site.
+- **Configure the hosting platform.** GitHub Pages provides HTTPS; enable **Enforce HTTPS** after the certificate is ready. GitHub Pages does not provide arbitrary response-header configuration for a static site, so use a CDN/reverse proxy if custom security headers are required. Confirm `404.html` is served with an HTTP 404 status.
 - The hero image and service illustrations in `assets/images/` were supplied for the website. The other photos are illustrative Unsplash images, not photos of Darwin Cable Works jobs. Replace them with approved business photos when available.
 - The downloaded photos are used under the [Unsplash License](https://unsplash.com/license).
 - Site icons are local SVGs from [Lucide](https://lucide.dev/icons), used under the ISC License.
@@ -14,12 +15,12 @@ This is a responsive, static website with three pages—Home, Contact and Privac
 - Confirm whether the business is covered by the Privacy Act 1988 and whether any small-business exemption or exception applies. Update the privacy notice if the form recipient or data handling changes.
 - Website accessibility has been improved, but no formal WCAG conformance audit has been performed.
 - Review `privacy.html` against the selected host and Web3Forms account's actual data handling and retention practices.
-- Add the confirmed domain's canonical/social metadata, then generate the domain-specific sitemap and `robots.txt` after the public HTTPS domain is confirmed:
+- Generate the GitHub Pages sitemap and `robots.txt`:
 
   ```sh
-  SITE_URL=https://YOUR-USERNAME.github.io/darwin-cable-works/ node scripts/generate-sitemap.mjs
+  SITE_URL=https://aayushtiwari115.github.io/Darwin-Cable-Works/ node scripts/generate-sitemap.mjs
   ```
 
-Replace `YOUR-USERNAME` with the confirmed GitHub account name. For a custom domain, use its HTTPS root instead (for example `https://www.example.com/`). The script requires HTTPS and a trailing slash, and supports GitHub Pages project-site paths so sitemap entries and the robots.txt sitemap reference include the repository path. The current `robots.txt` allows crawling but does not yet include a sitemap URL.
+For a custom domain, update canonical/social URLs and use that HTTPS root instead. The sitemap script requires HTTPS and a trailing slash, and supports GitHub Pages project-site paths so sitemap entries and the robots.txt sitemap reference include the repository path.
 
 After launch, verify the site in Google Search Console and Bing Webmaster Tools, submit the generated sitemap, and keep the website name, phone number and service area consistent with the business's public listings. Do not add a street address, opening hours, service guarantees or registration claims to structured data unless verified.
